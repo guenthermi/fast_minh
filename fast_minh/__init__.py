@@ -49,10 +49,10 @@ class HashFamily:
             self._b = self._permutation_type(*b)
         else:
             self._a = a or self._permutation_type(
-                *(random.randint(0, 2**32 - 1) for x in range(num_perm))
+                *(random.randint(0, 2 ** 32 - 1) for x in range(num_perm))
             )
             self._b = b or self._permutation_type(
-                *(random.randint(0, 2**32 - 1) for x in range(num_perm))
+                *(random.randint(0, 2 ** 32 - 1) for x in range(num_perm))
             )
 
     @property
@@ -111,7 +111,7 @@ class LshIndex:
         LSH index for minhash values.
 
         :param k: Number of hash tables
-        :param l: Length of keys in hash tables
+        :param d: Length of keys in hash tables
         :param a: Multiplier for permuations
         :param b: Bias for permutations
         :num_perm: Number of permutations
@@ -163,7 +163,7 @@ def get_lsh(
     num_perm: int = 128,
 ):
     """
-    Creates an LshIndex object with the optimal parameters for k and l.
+    Creates an LshIndex object with the optimal parameters for k and d.
 
     :param threshold: Jaccard similarity threshold
     :param false_positive_weight: Weight for false positive
@@ -171,10 +171,10 @@ def get_lsh(
     :param num_perm: Number of permutations
     :return: LshIndex object
     """
-    l, k = optimal_param(
+    d, k = optimal_param(
         threshold, num_perm, false_positive_weight, false_negative_weight
     )
-    return LshIndex(k, l, num_perm=num_perm)
+    return LshIndex(k, d, num_perm=num_perm)
 
 
 def minh(inputs: List[str], a: List[int], b: List[int]):
