@@ -14,5 +14,6 @@ test:
 style:
 	black -S $(PYTHON_FILES)
 	isort $(PYTHON_FILES)
+	ruff check $(PYTHON_FILES)
 	clang-format -i fast_minh/*.cpp fast_minh/*.h
 	clang-format -i tests/cpp/*.cpp

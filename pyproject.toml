@@ -24,6 +24,7 @@ dev = [
     'pytest~=7.4.3',
     'black==23.12.1',
     'isort==5.13.2',
+    'ruff==0.4.2',
     'datasketch==1.6.4',
 ]
 examples = [

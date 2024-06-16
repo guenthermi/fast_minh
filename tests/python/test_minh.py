@@ -3,6 +3,7 @@ from typing import List
 import numpy as np
 import pytest
 from datasketch import MinHash
+
 from fast_minh import HashFamily, minh
 
 
