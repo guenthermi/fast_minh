@@ -6,7 +6,7 @@ from setuptools import setup
 from cmake import CMAKE_BIN_DIR
 
 CMAKE_ARGS_CONFIGURE = ['-B', 'build/', '-S', 'fast_minh/']
-CMAKE_ARGS_BUILD = ['--build', 'build/']
+CMAKE_ARGS_BUILD = ['--build', 'build/', '--config', 'Release']
 
 
 def execute_cmake(args):

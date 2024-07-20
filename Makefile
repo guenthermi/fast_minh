@@ -2,8 +2,8 @@ PYTHON_FILES = tests/python/*.py fast_minh/*.py
 
 build: fast_minh/* tests/cpp/*
 	mkdir -p build
-	cmake -B build/ -S fast_minh/
-	cmake --build build/
+	cmake -B build/ -S fast_minh/ -DCMAKE_BUILD_TYPE=Debug
+	cmake --build build/ --config Debug
 
 test:
 	# run python tests

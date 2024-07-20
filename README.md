@@ -2,10 +2,14 @@
 
 A small Python package for calculating MinHash values, computing approaximated Jaccard similarity, and building LSH indices of MinHash values to perform fast approximated set similarity search.
 
+<p align=center>
+<a href="https://pypi.org/project/fast-minh/"><img alt="PyPI" src="https://img.shields.io/pypi/v/fast-minh?label=Release&style=flat-square"></a>
+</p>
+
 ## Installation
 
 ```bash
-pip install .
+pip install fast-minh
 ```
 
 ## Usage
