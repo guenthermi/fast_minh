@@ -1,1 +1,6 @@
 include fast_minh/libfast_minh.so
+include fast_minh/CMakeLists.txt
+include fast_minh/fast_minh.cpp
+include fast_minh/fast_minh.h
+include fast_minh/MurmurHash3.cpp
+include fast_minh/MurmurHash3.h

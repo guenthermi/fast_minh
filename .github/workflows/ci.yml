@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  style:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      
+      - name: Install dependencies
+        run: |
+          sudo apt-get install clang-format
+          pip install black==23.12.1 isort==5.13.2 ruff==0.4.2
+      
+      - name: Check style
+        run: make style
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install package
+        run: |
+          pip install -e ".[dev]"
+          pip install pytest
+
+      - name: Run tests
+        run: |
+          make build
+          make test
